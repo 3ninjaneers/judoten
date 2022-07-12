@@ -211,3 +211,8 @@ When changing drivers or installing the repo for the first time follow these ins
     2.  ```rails db:migrate```
 4.  Run Application
     1.  ```rails s```   __or__   ```rails server```
+ 5.    Run Front-end javascript testing
+``` yarn add jest```
+6. _**Run enzyme testing for Ruby 
+```yarn add -D enzyme react-test-renderer enzyme-adapter-react-16```
+7. Test Header Components and Header using jest and enzyme 
