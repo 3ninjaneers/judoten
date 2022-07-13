@@ -216,3 +216,79 @@ When changing drivers or installing the repo for the first time follow these ins
 6. _**Run enzyme testing for Ruby 
 ```yarn add -D enzyme react-test-renderer enzyme-adapter-react-16```
 7. Test Header Components and Header using jest and enzyme 
+// Imports React into our test file.
+import React from 'react'
+
+// Imports Enzyme testing and deconstructs Shallow into our test file.
+import Enzyme, { shallow } from 'enzyme'
+
+// Imports Adapter utilizing the latest react version into our test file so we can run a testing render on any component we may need.
+import Adapter from 'enzyme-adapter-react-16'
+
+// Imports in the component we are going to be testing.
+import Header from './Header'
+
+//Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
+Enzyme.configure({ adapter: new Adapter() })
+
+describe("When Header renders", () => {
+  it("displays a heading", () => {
+    const header = shallow(<Header />)
+    const headerHeading = header.find("h1")
+    expect(headerHeading.text()).toEqual("judoten")
+  })
+})
+import React, { Component } from 'react'
+import { Nav, NavItem } from 'reactstrap'
+import { NavLink } from 'react-router-dom'
+import './Header.scss'
+
+class Header extends Component {
+  render() {
+    const {
+      logged_in,
+      current_user,
+      new_user_route,
+      sign_in_route,
+      sign_out_route
+    } = this.props
+    console.log("logged_in:", logged_in)
+    console.log("current_user:", current_user)
+    return (
+      <header id='header-container'>
+        <h1><a id='home-link' href="/">judoten</a></h1>
+        <Nav className='links'>
+          <NavItem>
+            <NavLink className='page-links' to='/dojoindex'> All dojos </NavLink>
+          </NavItem>
+          {logged_in &&
+            <NavItem>
+              <a href="/dojonew" className="nav-link"> Add a dojo </a>
+            </NavItem>
+          }
+          {logged_in &&
+            <NavItem>
+              <a href={sign_out_route} className="nav-link">Sign Out</a>
+            </NavItem>
+          }
+          {!logged_in &&
+            <NavItem>
+              <a href={sign_in_route} className="nav-link"> Sign In </a>
+            </NavItem>
+          }
+          {!logged_in &&
+            <NavItem>
+              <a href={new_user_route} className="nav-link"> Create an Account </a>
+            </NavItem>
+          }
+          {logged_in &&
+            <NavItem>
+             <NavLink className='page-links' to='/mydojos'> dojo </NavLink>
+            </NavItem>
+          }
+        </Nav>
+      </header>
+    )
+  }
+}
+export default Header
