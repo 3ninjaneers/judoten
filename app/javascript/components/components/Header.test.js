@@ -11,9 +11,9 @@ describe("When Header renders", () => {
     const headerHeading = header.find("h1")
     expect(headerHeading.text()).toEqual("JudoTen")
   })
-  it("displays a button named FAQ", () => {
+  it("displays three links", () => {
     const header = shallow(<Header />)
-    const headerFaqBtn = header.find('[href="/#faq"]')
-    expect(headerFaqBtn.text()).toEqual("FAQ")
+    const headerFaqBtn = header.find("a")
+    expect(headerFaqBtn.length).toEqual(3)
   })
 })

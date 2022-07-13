@@ -25,6 +25,11 @@ class Header extends Component {
           </NavItem>
           {logged_in &&
             <NavItem>
+             <NavLink className='page-links' to='/mydojos'> My Dojos </NavLink>
+            </NavItem>
+          }
+          {logged_in &&
+            <NavItem>
               <a href="/dojonew" className="nav-link"> Spot a Dojo </a>
             </NavItem>
           }
@@ -41,11 +46,6 @@ class Header extends Component {
           {!logged_in &&
             <NavItem>
               <a href={new_user_route} className="nav-link"> Create an Account </a>
-            </NavItem>
-          }
-          {logged_in &&
-            <NavItem>
-             <NavLink className='page-links' to='/mydojos'> My Dojos </NavLink>
             </NavItem>
           }
         </Nav>
