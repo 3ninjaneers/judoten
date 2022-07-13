@@ -5,6 +5,9 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
+import Footer from './components/Footer'
+
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -21,6 +24,7 @@ class App extends Component {
           <Header {...this.props}/>
           <Switch>
           </Switch>
+          <Footer/>
         </Router>
       </>
     )
