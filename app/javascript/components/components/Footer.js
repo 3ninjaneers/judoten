@@ -9,11 +9,21 @@ export default class Footer extends Component {
         <Row>
             <Col className='bg-light' sm='3'>  
                 <Nav vertical>
-                    <NavItem><NavLink href='/'>Home</NavLink></NavItem>
-                    <NavItem><NavLink href='/users/sign_in'>Login</NavLink></NavItem>
-                    <NavItem><NavLink href='/users/sign_up'>Sign Up</NavLink></NavItem>
-                    <NavItem><NavLink href='/dojoindex'>Dojos</NavLink></NavItem>
-                    <NavItem><NavLink href='/aboutus'> About Us</NavLink></NavItem>
+                    <NavItem>
+                        <NavLink href='/'>Home</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href='/users/sign_in'>Login</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href='/users/sign_up'>Sign Up</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href='/dojoindex'>Dojos</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink href='/aboutus'> About Us</NavLink>
+                    </NavItem>
                 </Nav>
             </Col> 
             <Col sm='9'>
