@@ -6,7 +6,7 @@ import {
   Switch
 } from 'react-router-dom'
 import Footer from './components/Footer'
-
+import Home from './pages/Home'
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +23,7 @@ class App extends Component {
         <Router>
           <Header {...this.props}/>
           <Switch>
+          <Route exact path="/" component={Home} />
           </Switch>
           <Footer/>
         </Router>
