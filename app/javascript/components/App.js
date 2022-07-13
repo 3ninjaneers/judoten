@@ -1,26 +1,27 @@
 import React, { Component } from 'react'
+import Header from './components/Header'
 import {
   BrowserRouter as  Router,
   Route,
   Switch
 } from 'react-router-dom'
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      dojos: []
+    }
+  }
+
   render() {
-    const {
-      logged_in,
-      current_user,
-      new_user_route,
-      sign_in_route,
-      sign_out_route
-    } = this.props
-    console.log("logged_in:", logged_in)
-    console.log("current_user:", current_user)
-    console.log("new_user_route:", new_user_route)
-    console.log("sign_in_route:", sign_in_route)
-    console.log("sign_out_route:", sign_out_route)
+    const { current_user } = this. props
     return(
       <>
-        <h1>Judoten App</h1>
+        <Router>
+          <Header {...this.props}/>
+          <Switch>
+          </Switch>
+        </Router>
       </>
     )
   }
