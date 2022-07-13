@@ -292,3 +292,46 @@ class Header extends Component {
   }
 }
 export default Header
+
+## Header
+**FYI**: Conditionally rendered NavLinks do not show up in tests as anchor tags
+For the testing we needed to figure out how to test for multiple a tags
+```javascript
+  it("displays three links", () => {
+    const header = shallow(<Header />)
+    const headerFaqBtn = header.find("a")
+    expect(headerFaqBtn.length).toEqual(3)
+  })
+```
+
+
+## Footer
+Needed to add the following to properly test the image inside our footer
+>Terminal
+```bash
+    yarn add --dev identity-obj-proxy
+```
+>File: package.json
+```javascript
+"jest": {
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
+    }
+  }
+```
+
+The following is the import necessary to add our logo (located in the assets folder) to the footer
+```javascript
+import logo from '../../../assets/images/3ninjaneers.png'
+```
+```jsx
+<Row><img src={ logo }/></Row>
+```
+Testing the Footer we used the following "interesting" function to make sure that a p tag and its contents were rendering
+```javascript
+  it("displays p tag containing copyright info", () => {
+    const footer = shallow(<Footer />)
+    const footerCopyright = footer.find("p")
+    expect(footerCopyright.exists()).toEqual(true)
+  })
+```
