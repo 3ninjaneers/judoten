@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Nav, NavItem } from 'reactstrap'
-import { NavLink } from 'react-router-dom'
+import { Nav, NavItem, NavLink, Navbar ,NavbarBrand , NavbarToggler , Collapse, UncontrolledDropdown, DropdownToggle, DropdownMenu, NavbarText, DropdownItem } from 'reactstrap'
+// import { NavLink } from 'react-router-dom'
 
 class Header extends Component {
   render() {
@@ -14,9 +14,22 @@ class Header extends Component {
     console.log("logged_in:", logged_in)
     console.log("current_user:", current_user)
     return (
-      <header id='header-container'>
-        <h1><a id='home-link' href="/">JudoTen</a></h1>
-        <Nav className='links'>
+      <Navbar id="header-nav"
+    color="dark"
+    dark
+    expand="sm"
+    fixed="top"
+    light
+  >
+    <NavbarBrand href="/">
+      JudoTen
+    </NavbarBrand>
+    <NavbarToggler onClick={function noRefCheck(){}} />
+    <Collapse navbar>
+      <Nav
+        className="me-auto"
+        navbar
+      >
           <NavItem>
             <NavLink className='page-links' to='/#faq'> FAQ </NavLink>
           </NavItem>
@@ -49,7 +62,8 @@ class Header extends Component {
             </NavItem>
           }
         </Nav>
-      </header>
+        </Collapse> 
+      </Navbar>
     )
   }
 }
