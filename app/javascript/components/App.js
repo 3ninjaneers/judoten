@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import DojoIndex from './pages/DojoIndex'
 import DojoShow from './pages/DojoShow'
 
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -37,6 +38,11 @@ class App extends Component {
           <Route exact path="/" component={Home} />
 
           <Route path="/dojoindex" render={props => <DojoIndex dojos={this.state.dojos}/> }/>
+          
+          <Route path="/mydojos" render={props => {
+              let myDojos = this.state.dojos.filter(dojo => dojo.user_id === current_user.id)
+              return <DojoIndex dojos={myDojos}/> 
+            }}/>
 
           <Route path="/dojoshow/:id" 
             render= {(props)=>{
@@ -44,6 +50,8 @@ class App extends Component {
             let dojo = this.state.dojos.find((dojoObject)=> dojoObject.id === parseInt(id, 10))
             return <DojoShow dojo={dojo} logged_in={current_user} />
             }} />
+
+
 
           </Switch>
           <Footer/>
