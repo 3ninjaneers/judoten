@@ -28,14 +28,14 @@ class Header extends Component {
         <Collapse navbar>
           <Nav className="me-auto" navbar>
               <NavItem>
-                <NavLink className='page-links' to='/#faq'> FAQ </NavLink>
+                <NavLink className='page-links' href='/#faq'> FAQ </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className='page-links' to='/dojoindex'> All Dojos </NavLink>
+                <NavLink className='page-links' href='/dojoindex'> All Dojos </NavLink>
               </NavItem>
               {logged_in &&
                 <NavItem>
-                <NavLink className='page-links' to='/mydojos'> My Dojos </NavLink>
+                <NavLink className='page-links' href='/mydojos'> My Dojos </NavLink>
                 </NavItem>
               }
               {logged_in &&
