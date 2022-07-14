@@ -38,6 +38,11 @@ class App extends Component {
           <Route exact path="/" component={Home} />
 
           <Route path="/dojoindex" render={props => <DojoIndex dojos={this.state.dojos}/> }/>
+          
+          <Route path="/mydojos" render={props => {
+              let myDojos = this.state.dojos.filter(dojo => dojo.user_id === current_user.id)
+              return <DojoIndex dojos={myDojos}/> 
+            }}/>
 
           <Route path="/dojoshow/:id" 
             render= {(props)=>{
@@ -46,10 +51,7 @@ class App extends Component {
             return <DojoShow dojo={dojo} logged_in={current_user} />
             }} />
 
-          <Route path="/mydojos" render={props => {
-              let myDojos = this.state.dojos.filter(dojo => dojo.user_id === current_user.id)
-              return <DojoIndex dojos={myDojos}/> 
-            }}/>
+
 
           </Switch>
           <Footer/>
