@@ -28,6 +28,18 @@ class App extends Component {
     .catch(errors => console.log(errors))
   }
 
+  deleteDojo = (id) => {
+    fetch(`/dojos/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => response.json())
+    .then(payload => this.readDojos())
+    .catch(errors => console.log("delete errors:", errors))
+  }
+
   render() {
     const { current_user } = this. props
     return(
@@ -47,11 +59,9 @@ class App extends Component {
           <Route path="/dojoshow/:id" 
             render= {(props)=>{
             let id = props.match.params.id
-            let dojo = this.state.dojos.find((dojoObject)=> dojoObject.id === parseInt(id, 10))
-            return <DojoShow dojo={dojo} logged_in={current_user} />
+            let dojo = this.state.dojos.find(dojo => dojo.id === +id)
+            return <DojoShow dojo={dojo} logged_in={current_user} deleteDojo={this.deleteDojo} />
             }} />
-
-
 
           </Switch>
           <Footer/>

@@ -20,3 +20,17 @@
         flex-grow: 0;
     }
  }
+
+#footer-component {
+    color: rgba(255, 255, 255, 0.55);
+    #footer-nav {
+        font-size: 0.7em;
+    }
+    #footer-nav li{
+        
+    }
+    #footer-logo img {
+        max-width: 150px;
+    }
+
+}
