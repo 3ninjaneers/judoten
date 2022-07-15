@@ -10,7 +10,5 @@ class Dojo < ApplicationRecord
   validates :email, length: {minimum: 5}
   validates :image, length: {minimum: 8}
   
-
-
   belongs_to :user
 end
