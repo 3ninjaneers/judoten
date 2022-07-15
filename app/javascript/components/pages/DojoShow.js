@@ -3,12 +3,22 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, Button, Container, NavLink, Nav, NavItem
 } from 'reactstrap';
+import { Redirect } from 'react-router-dom'
 
 export default class DojoShow extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            deleted: false
+        }
+    }
+    handleDelete = (id) => {
+        this.props.deleteDojo(id)
+        this.setState({deleted: true})
+    }
     render() {
         const { dojo } = this.props
         const { logged_in } = this.props
-        console.log("Logged", logged_in)
         console.log("Props", this.props)
         return (
             <Container id='show'>
@@ -32,11 +42,12 @@ export default class DojoShow extends Component {
                                             <NavLink to='/dojoedit'><Button>Edit</Button></NavLink>
                                         </NavItem>
                                         <NavItem>
-                                            <NavLink><Button>Delete</Button></NavLink>
+                                            <NavLink><Button onClick={() => this.handleDelete(dojo.id)}>Delete</Button></NavLink>
                                         </NavItem>
                                     </Nav>
 
                                 }
+                                {this.state.deleted && <Redirect to='/dojoindex' />}
                             </CardBody>
                         </Card>
                     }

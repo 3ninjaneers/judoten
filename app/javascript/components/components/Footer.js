@@ -5,9 +5,9 @@ import logo from '../../../assets/images/3ninjaneers.png'
 export default class Footer extends Component {
   render() {
     return (
-        <Container className='bg-light border' fluid >
+        <Container id="footer-component" className='bg-dark border' dark fluid >
         <Row>
-            <Col className='bg-light' sm='3'>  
+            <Col id="footer-nav" className='' sm='3'>  
                 <Nav vertical>
                     <NavItem>
                         <NavLink href='/'>Home</NavLink>
@@ -27,7 +27,7 @@ export default class Footer extends Component {
                 </Nav>
             </Col> 
             <Col sm='9'>
-                <Row><img src={ logo }/></Row>
+                <Row id="footer-logo"><img src={ logo }/></Row>
                 <Row>
                     <Nav>
                         <NavItem><NavLink href='https://github.com/3ninjaneers/judoten'>GitHub</NavLink></NavItem>
