@@ -9,6 +9,7 @@ import {
   Button,
   Container,
 } from "reactstrap";
+import { Redirect } from "react-router-dom";
 
 export default class DojoNew extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ export default class DojoNew extends Component {
         image: "",
         user_id: user_id,
       },
-      submitted: false,
+      created: false,
     };
   }
   handleChange = (event) => {
@@ -38,7 +39,7 @@ export default class DojoNew extends Component {
 
   handleSubmit = () => {
     this.props.createDojo(this.state.newDojo);
-    this.setState({ submitted: true });
+    this.setState({ created: true });
   };
   render() {
     return (
@@ -134,7 +135,7 @@ export default class DojoNew extends Component {
               <Input
                 id="exampleInstructor"
                 name="instructor"
-                placeholder="judo@know.me"
+                placeholder="Sensei McThrowperson"
                 onChange={this.handleChange}
                 value={this.state.newDojo.instructor}
               />
@@ -154,8 +155,9 @@ export default class DojoNew extends Component {
           </Row>
 
           <Button id="submit" onClick={this.handleSubmit}>
-            Submit
+            Spot Dojo
           </Button>
+          {this.state.created && <Redirect to="/mydojos" />}
         </Form>
       </Container>
     );
