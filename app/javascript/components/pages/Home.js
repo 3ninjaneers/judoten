@@ -1,23 +1,39 @@
-import React, { Component } from 'react' 
-import { Button, Container, NavLink, CardGroup, Card, CardImg } from 'reactstrap'
-
+import React, { Component } from "react";
+import {
+  Button,
+  Container,
+  NavLink,
+  CardGroup,
+  Card,
+  CardImg,
+} from "reactstrap";
 
 export default class Home extends Component {
-  render(){
-    return(
+  render() {
+    return (
       <>
-      <div>
-      
-        <Container fluid>
-        <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1353&q=80" alt="scenery"/>
-           <NavLink href="/dojoindex"><Button>Find Dojo Near You</Button></NavLink>
+        <Container id="hero-container" fluid>
+          <Container className="hero-text">
+            <NavLink href="/dojoindex">
+              <Button color="danger" size="lg">
+                Find Dojo Near You
+              </Button>
+            </NavLink>
+          </Container>
         </Container>
-      
-      </div>
-      <Container>
-        <Container>
+        <Container id="home-about">
           <h2>How JudoTen Works</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Fusce id velit ut tortor pretium. Etiam erat velit scelerisque in. Amet porttitor eget dolor morbi non arcu risus quis varius. Orci porta non pulvinar neque laoreet suspendisse interdum consectetur. Ac tortor dignissim convallis aenean et. Cum sociis natoque penatibus et. Nam at lectus urna duis convallis.</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
+            mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien.
+            Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras.
+            Fusce id velit ut tortor pretium. Etiam erat velit scelerisque in.
+            Amet porttitor eget dolor morbi non arcu risus quis varius. Orci
+            porta non pulvinar neque laoreet suspendisse interdum consectetur.
+            Ac tortor dignissim convallis aenean et. Cum sociis natoque
+            penatibus et. Nam at lectus urna duis convallis.
+          </p>
           <CardGroup>
             <Card>
               <CardImg
@@ -66,9 +82,7 @@ export default class Home extends Component {
             </details>
           </Container>
         </Container>
-      </Container>
-      
       </>
-    )
+    );
   }
 }

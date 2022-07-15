@@ -15,8 +15,56 @@
  */
  @import 'bootstrap';
 
+ body, html {
+    height: 100%;
+ }
  #header-nav {
     .navbar-collapse {
         flex-grow: 0;
     }
  }
+
+#footer-component {
+    color: rgba(255, 255, 255, 0.55);
+    margin-top: 56px;
+    #footer-nav {
+        font-size: 0.7em;
+    }
+    #footer-nav li{
+        
+    }
+    #footer-logo img {
+        max-width: 150px;
+    }
+
+}
+
+#hero-container {
+    margin-top:56px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("./background-hero-torii.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 95vh;
+    .hero-text {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+      }
+}
+#home-about {
+    min-height: 600px;
+    margin-top: 5em;
+    h2 {
+        text-align: center;
+        margin-bottom: 2em;
+    }
+    p {
+        line-height: 1.6em;
+        margin-bottom: 2em;
+    }
+}
