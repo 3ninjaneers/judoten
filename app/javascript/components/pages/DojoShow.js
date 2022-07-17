@@ -16,6 +16,7 @@ import { Redirect } from "react-router-dom";
 export default class DojoShow extends Component {
   constructor(props) {
     super(props);
+    console.log("SHOW props", this.props);
     this.state = {
       deleted: false,
     };
@@ -24,6 +25,7 @@ export default class DojoShow extends Component {
     this.props.deleteDojo(id);
     this.setState({ deleted: true });
   };
+
   render() {
     const { dojo } = this.props;
     const { logged_in } = this.props;
@@ -52,7 +54,7 @@ export default class DojoShow extends Component {
                 {logged_in && dojo.user_id === logged_in.id && (
                   <Nav>
                     <NavItem>
-                      <NavLink to="/dojoedit">
+                      <NavLink href={`/dojoedit/${dojo.id}`}>
                         <Button>Edit</Button>
                       </NavLink>
                     </NavItem>
