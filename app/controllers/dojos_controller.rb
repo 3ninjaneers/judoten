@@ -17,6 +17,14 @@ class DojosController < ApplicationController
             render json: dojo.errors, status: 422
         end
     end
+    def update
+        dojo = Dojo.find(params[:id])   
+        if dojo.update(dojo_params)
+          render json: dojo
+        else
+          render json: dojo.errors, status:422
+        end
+      end
     private
 
     def dojo_params

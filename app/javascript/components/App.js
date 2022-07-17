@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import DojoIndex from "./pages/DojoIndex";
 import DojoShow from "./pages/DojoShow";
 import DojoNew from "./pages/DojoNew";
+import DojoEdit from "./pages/DojoEdit";
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +35,18 @@ class App extends Component {
       .then((response) => response.json())
       .then((payload) => this.readDojos())
       .catch((errors) => console.log("Creation Error:", errors));
+  };
+  updateDojo = (editDojo, id) => {
+    fetch(`/dojos/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify(editDojo),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((payload) => this.readDojos)
+      .catch((errors) => console.log("update errors:", errors));
   };
 
   deleteDojo = (id) => {
@@ -82,6 +95,20 @@ class App extends Component {
                     dojo={dojo}
                     logged_in={current_user}
                     deleteDojo={this.deleteDojo}
+                  />
+                );
+              }}
+            />
+            <Route
+              path="/dojoedit/:id"
+              render={(props) => {
+                let id = props.match.params.id;
+                let dojo = this.state.dojos.find((dojo) => dojo.id === +id);
+                return (
+                  <DojoEdit
+                    dojo={dojo}
+                    logged_in={current_user}
+                    updateDojo={this.updateDojo}
                   />
                 );
               }}
