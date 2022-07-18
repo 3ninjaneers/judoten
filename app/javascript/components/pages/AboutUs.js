@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Row, Col, Container, Nav, NavItem, NavLink } from "reactstrap";
 import githubLogo from "../../../assets/images/github.png";
-// import linkedinLogo from "../../../assets/images/linkedin.png";
-// import emailLogo from "../../../assets/images/email.png";
+import linkedinLogo from "../../../assets/images/linkedin.png";
+import emailLogo from "../../../assets/images/email.png";
 import {
   Card,
   CardImg,
@@ -30,7 +30,7 @@ export default class AboutUs extends Component {
               <CardTitle>Name</CardTitle>
               <CardSubtitle>Title/Secondary Title</CardSubtitle>
               <Row>
-                <Col className="col-3">
+                <Col className="col-md-3">
                   <CardImg
                     center
                     style={{ width: "15rem" }}
@@ -38,7 +38,8 @@ export default class AboutUs extends Component {
                     alt="default"
                   />
                 </Col>
-                <Col className="col-9">
+                <Col className="col-md-1"></Col>
+                <Col className="col-md-8">
                   <CardText className="profile-text">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Provident expedita maiores et similique, fugit reprehenderit
@@ -47,9 +48,29 @@ export default class AboutUs extends Component {
                   </CardText>
                 </Col>
               </Row>
-              <NavLink>
-                <img src={githubLogo} alt="github logo" />
-              </NavLink>
+              <Row>
+                <NavLink>
+                  <img
+                    className="social-img"
+                    src={githubLogo}
+                    alt="github logo"
+                  />
+                </NavLink>
+                <NavLink>
+                  <img
+                    className="social-img"
+                    src={linkedinLogo}
+                    alt="linkedin logo"
+                  />
+                </NavLink>
+                <NavLink>
+                  <img
+                    className="social-img"
+                    src={emailLogo}
+                    alt="email logo"
+                  />
+                </NavLink>
+              </Row>
             </CardBody>
           </Card>
         </Container>
