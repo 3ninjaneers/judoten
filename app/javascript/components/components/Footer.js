@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Container, NavLink, Nav, NavItem, Col, Row } from "reactstrap";
+import { Container, Nav, NavItem, Col, Row } from "reactstrap";
+import { Link } from "react-router-dom";
 import logo from "../../../assets/images/3ninjaneers.png";
 
 export default class Footer extends Component {
@@ -10,19 +11,19 @@ export default class Footer extends Component {
           <Col id="footer-nav" className="" sm="3">
             <Nav vertical>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
+                <Link to="/">Home</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/users/sign_in">Login</NavLink>
+                <Link to="/users/sign_in">Login</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/users/sign_up">Sign Up</NavLink>
+                <Link to="/users/sign_up">Sign Up</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/dojoindex">Dojos</NavLink>
+                <Link to="/dojoindex">Dojos</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/aboutus"> About Us</NavLink>
+                <Link to="/aboutus">About Us</Link>
               </NavItem>
             </Nav>
           </Col>
@@ -33,9 +34,9 @@ export default class Footer extends Component {
             <Row>
               <Nav>
                 <NavItem>
-                  <NavLink href="https://github.com/3ninjaneers/judoten">
+                  <Link to="https://github.com/3ninjaneers/judoten">
                     GitHub
-                  </NavLink>
+                  </Link>
                 </NavItem>
               </Nav>
             </Row>
