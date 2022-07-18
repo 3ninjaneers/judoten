@@ -27,13 +27,18 @@
 #footer-component {
     color: rgba(255, 255, 255, 0.55);
     margin-top: 56px;
-    #footer-nav {
-        font-size: 0.7em;
+    #footer-sitemap {
+        display:flex;
+        flex-direction: row-reverse;
+        .nav {
+            justify-content: center;
+        }
+        a {
+            font-size: 0.7em;
+            padding-bottom: 0.1em;
+        }
     }
-    #footer-nav li{
-        
-    }
-    #footer-logo img {
+    #footer-logo {
         max-width: 150px;
     }
 
@@ -66,5 +71,12 @@
     p {
         line-height: 1.6em;
         margin-bottom: 2em;
+    }
+    .card {
+        border: none;
+        padding: 0 2rem;
+    }
+    .card-img-top {
+        border-radius: 30px;
     }
 }
