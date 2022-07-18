@@ -11,7 +11,7 @@ import {
   Nav,
   NavItem,
 } from "reactstrap";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink as RRNavLink } from "react-router-dom";
 
 export default class DojoShow extends Component {
   constructor(props) {
@@ -54,7 +54,11 @@ export default class DojoShow extends Component {
                 {logged_in && dojo.user_id === logged_in.id && (
                   <Nav>
                     <NavItem>
-                      <NavLink href={`/dojoedit/${dojo.id}`}>
+                      <NavLink
+                        dojo={dojo}
+                        tag={RRNavLink}
+                        to={`/dojoedit/${dojo.id}`}
+                      >
                         <Button>Edit</Button>
                       </NavLink>
                     </NavItem>
