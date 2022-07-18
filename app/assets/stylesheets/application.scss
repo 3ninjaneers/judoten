@@ -35,5 +35,18 @@
 
 }
 #about-container {
-    
+   margin-top: 56px;
+   div{
+    border: 1px solid black;
+   }
+   h2{
+    text-align: center;
+    padding-top: 4rem;
+   } 
+   .profiles{
+    max-height: 30%;
+    img{
+        display: inline-block;
+    }
+   }
 }

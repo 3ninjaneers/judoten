@@ -3,7 +3,16 @@ import { Container, Nav, NavItem, NavLink } from "reactstrap";
 import githubLogo from "../../../assets/images/github.png";
 import linkedinLogo from "../../../assets/images/linkedin.png";
 import emailLogo from "../../../assets/images/email.png";
-
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  Button,
+  Container,
+} from "reactstrap";
 export default class AboutUs extends Component {
   render() {
     return (
@@ -26,7 +35,7 @@ export default class AboutUs extends Component {
             <Container className="profile-image-area col-2">
               <img src="https://picsum.photos/200/200" alt="default" />
             </Container>
-            <Container className="profile-content col-6">
+            <Container className="profile-content col-5">
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Provident expedita maiores et similique, fugit reprehenderit
