@@ -45,7 +45,7 @@ class App extends Component {
       },
     })
       .then((response) => response.json())
-      .then((payload) => this.readDojos)
+      .then((payload) => this.readDojos())
       .catch((errors) => console.log("update errors:", errors));
   };
 
