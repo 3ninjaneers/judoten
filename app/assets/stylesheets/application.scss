@@ -17,21 +17,20 @@
 
  body, html {
     height: 100%;
-    background-color: rgb(33, 37, 41);
  }
  #header-nav {
     .navbar-collapse {
         flex-grow: 0;
     }
  }
-#login_page, #register_page {
+ #register_page, #login_page {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("./background-hero.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     margin-top: 56px;
-    min-height: 50vh;
+    height: 100%;
     color: white;
     text-align: center;
     h2{
@@ -42,16 +41,14 @@
         margin-bottom: 1.25rem;
     }
 }
-#new_user {
-    margin: 0 auto;
-    margin-top: 4rem;
 
-}
-
-
+// #new_user {
+//     margin: 0 auto;
+//     margin-top: 4rem;
+// }
 #footer-component {
     color: rgba(255, 255, 255, 0.55);
-    margin-top: 56px;
+    padding-top: 56px;
     #footer-sitemap {
         display:flex;
         flex-direction: row-reverse;
@@ -66,9 +63,7 @@
     #footer-logo {
         max-width: 150px;
     }
-
 }
-
 #hero-container {
     margin-top:56px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("./background-hero-torii.jpg");

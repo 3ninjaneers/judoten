@@ -9,6 +9,11 @@ import {
 } from "reactstrap";
 
 export default class Home extends Component {
+  componentDidMount() {
+    if (window.location.hash === "#faq") {
+      document.getElementById("faq").scrollIntoView();
+    }
+  }
   render() {
     return (
       <>
