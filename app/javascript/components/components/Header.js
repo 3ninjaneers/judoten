@@ -6,9 +6,8 @@ import {
   Navbar,
   NavbarBrand,
   NavbarToggler,
-  Collapse,
+  UncontrolledCollapse,
 } from "reactstrap";
-// import { NavLink } from 'react-router-dom'
 
 class Header extends Component {
   constructor(props) {
@@ -29,15 +28,11 @@ class Header extends Component {
       sign_in_route,
       sign_out_route,
     } = this.props;
-    console.log(this.state.collapsed);
     return (
-      <Navbar id="header-nav" color="dark" dark expand fixed="top" light>
+      <Navbar id="header-nav" color="dark" dark expand="sm" fixed="top" light>
         <NavbarBrand href="/">JudoTen</NavbarBrand>
-        <NavbarToggler
-          className="me-2"
-          onClick={this.toggleCollapsed.bind(this)}
-        />
-        <Collapse isOpen={!this.state.collapsed} navbar>
+        <NavbarToggler id="toggler" onClick={function noRefCheck() {}} />
+        <UncontrolledCollapse defaultOpen={false} toggler="#toggler" navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
               <NavLink className="page-links" href="/#faq">
@@ -76,7 +71,7 @@ class Header extends Component {
             )}
             {!logged_in && (
               <NavItem>
-                <a href={sign_in_route} className="nav-link">
+                <a href={"/users/sign_in"} className="nav-link">
                   {" "}
                   Sign In{" "}
                 </a>
@@ -84,14 +79,14 @@ class Header extends Component {
             )}
             {!logged_in && (
               <NavItem>
-                <a href={new_user_route} className="nav-link">
+                <a href={"/users/sign_up"} className="nav-link">
                   {" "}
                   Create an Account{" "}
                 </a>
               </NavItem>
             )}
           </Nav>
-        </Collapse>
+        </UncontrolledCollapse>
       </Navbar>
     );
   }
