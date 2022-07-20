@@ -7,6 +7,7 @@ import DojoIndex from "./pages/DojoIndex";
 import DojoShow from "./pages/DojoShow";
 import DojoNew from "./pages/DojoNew";
 import DojoEdit from "./pages/DojoEdit";
+import AboutUs from "./pages/AboutUs";
 
 class App extends Component {
   constructor(props) {
@@ -122,6 +123,7 @@ class App extends Component {
                 />
               )}
             />
+            <Route exact path="/aboutus" component={AboutUs} />
           </Switch>
           <Footer />
         </Router>

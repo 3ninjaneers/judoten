@@ -8,9 +8,19 @@ import {
   NavbarToggler,
   UncontrolledCollapse,
 } from "reactstrap";
-// import { NavLink } from 'react-router-dom'
+import judoTenLogo from "../../../assets/images/judoten_logo.png";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapsed: false,
+    };
+  }
+  toggleCollapsed() {
+    this.setState({ collapsed: !this.state.collapsed });
+  }
+
   render() {
     const {
       logged_in,
@@ -21,7 +31,9 @@ class Header extends Component {
     } = this.props;
     return (
       <Navbar id="header-nav" color="dark" dark expand="sm" fixed="top" light>
-        <NavbarBrand href="/">JudoTen</NavbarBrand>
+        <NavbarBrand href="/">
+          <img id="judotenLogo" src={judoTenLogo} alt="JudoTen Logo" />
+        </NavbarBrand>
         <NavbarToggler id="toggler" onClick={function noRefCheck() {}} />
         <UncontrolledCollapse defaultOpen={false} toggler="#toggler" navbar>
           <Nav className="me-auto" navbar>
