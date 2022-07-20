@@ -169,4 +169,31 @@ RSpec.describe Dojo, type: :model do
       expect(dojo.errors[:image]).to_not be_empty
     end
   end
+  describe 'uniqueness test' do
+    it 'does not allow duplicate addresses' do
+      Dojo.create(
+        name: "The Arena",
+        address: "3350 Sports Arena Blvd",
+        city: "San Diego",
+        state: "CA",
+        website: "https://www.thearenagym.com/", 
+        phone: "6192225554", 
+        instructor: "Dr. Zbigniew Piec", 
+        email: "Inquire on dojo Website", 
+        image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Jigoro_Kano_and_Kyuzo_Mifune_%28restoration%29.jpg"
+      )
+      dojo_test = Dojo.new(
+        name: "The Chicken",
+        address: "3350 Sports Arena Blvd",
+        city: "San Diego",
+        state: "CA",
+        website: "https://www.thearenagym.com/", 
+        phone: "6192225554", 
+        instructor: "Dr. Zbigniew Piec", 
+        email: "Inquire on dojo Website", 
+        image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Jigoro_Kano_and_Kyuzo_Mifune_%28restoration%29.jpg"
+      ).save
+      expect(dojo_test).to eq(false)
+    end
+  end
 end

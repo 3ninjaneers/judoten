@@ -1,9 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "Dojos", type: :request do
+  
   let(:user)do
     User.create(email: 'test@example.com', password: '12345678', password_confirmation: '12345678')
   end
+
+
   describe "GET /index" do
     it 'returns a list of Dojos' do
       user = User.where(email: 'test@example.com').first_or_create(password: '12345678', password_confirmation: '12345678')
@@ -24,6 +27,22 @@ RSpec.describe "Dojos", type: :request do
       dojos = JSON.parse(response.body)
       expect(response).to have_http_status(200)
       expect(dojos.length).to eq(1)
+    end
+    it 'renders a successful response' do
+      user = User.where(email: 'test@example.com').first_or_create(password: '12345678', password_confirmation: '12345678')
+      user.dojos.create(
+        name: "Outliers JiuJitsu",
+        address: "10251 Mast Blvd",
+        city: "Santee",
+        state: "CA",
+        website: "http://outliersbjj.com/schedule/", 
+        phone: "6197088699", 
+        instructor: "Saeid", 
+        email: "Jeremy@OutliersBJJ.com", 
+        image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Jigoro_Kano_and_Kyuzo_Mifune_%28restoration%29.jpg"
+      )
+      get '/dojos'
+      expect(response).to be_successful
     end
   end
   describe "POST /create" do
@@ -48,6 +67,27 @@ RSpec.describe "Dojos", type: :request do
       expect(response).to have_http_status(200)
       dojo = Dojo.first
       expect(dojo.name).to eq("Outliers JiuJitsu")
+    end
+
+    it 'renders a JSON response with the new dojo' do
+      user = User.where(email: 'test@example.com').first_or_create(password: '12345678', password_confirmation: '12345678')
+      dojo_params = {
+        dojo: {
+          name: "Outliers JiuJitsu",
+          address: "10251 Mast Blvd",
+          city: "Santee",
+          state: "CA",
+          website: "http://outliersbjj.com/schedule/", 
+          phone: "6197088699", 
+          instructor: "Saeid", 
+          email: "Jeremy@OutliersBJJ.com", 
+          image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Jigoro_Kano_and_Kyuzo_Mifune_%28restoration%29.jpg",
+          user_id: user.id
+        }
+      }
+
+      post '/dojos', params: dojo_params
+      expect(response).to have_http_status(:ok)
     end
     
     it 'does not create a dojo without a name' do
@@ -522,8 +562,8 @@ RSpec.describe "Dojos", type: :request do
     end
   end
 
-  describe "Destroy /cats/:id" do
-    it "destroys a cat from the database" do
+  describe "Destroy /dojos/:id" do
+    it "destroys a dojo from the database" do
       user = User.where(email: 'test@example.com').first_or_create(password: '12345678', password_confirmation: '12345678')
       user.dojos.create(
         name: "Outliers JiuJitsu",
