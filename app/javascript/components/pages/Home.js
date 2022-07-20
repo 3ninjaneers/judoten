@@ -30,15 +30,13 @@ export default class Home extends Component {
           <Container id="home-about">
             <h2>How JudoTen Works</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
-              mauris commodo quis imperdiet massa tincidunt nunc pulvinar
-              sapien. Tellus pellentesque eu tincidunt tortor aliquam nulla
-              facilisi cras. Fusce id velit ut tortor pretium. Etiam erat velit
-              scelerisque in. Amet porttitor eget dolor morbi non arcu risus
-              quis varius. Orci porta non pulvinar neque laoreet suspendisse
-              interdum consectetur. Ac tortor dignissim convallis aenean et. Cum
-              sociis natoque penatibus et. Nam at lectus urna duis convallis.
+              JudoTen is where people can find information about where they can
+              train Judo. A typical user who is not logged in is able to view
+              the list of all dojos in the database and some information about
+              each of them. A user who is logged has a little more power; they
+              can add information about a dojo to the database. They can also
+              edit info about the dojos they have created, or even delete them
+              entirely.
             </p>
             <CardGroup>
               <Card>
@@ -71,20 +69,38 @@ export default class Home extends Component {
             <h2>FAQ</h2>
             <Container id="questions">
               <details>
-                <summary>First Question Here</summary>
-                blahblahblahblahblahblahblahblah
+                <summary>
+                  When adding a dojo, what's the most important info that needs
+                  to be provided?
+                </summary>
+                The most important info about a dojo is where to find it. So its
+                name, address, city, and state need to be provided so others can
+                find it.
               </details>
               <details>
-                <summary>Second Question Here</summary>
-                blahblahblahblahblahblahblahblah
+                <summary>
+                  What if I know of a place that teaches Judo, but is not really
+                  a Judo dojo?
+                </summary>
+                That's perfectly fine. A lot of Judo is taught as an accessory
+                to more popular martial arts. Even if the dojo only teaches Judo
+                for one hour every week, feel free to add it to the database so
+                that others can find it.
               </details>
               <details>
-                <summary>Third Question Here</summary>
-                blahblahblahblahblahblahblahblah
+                <summary>
+                  How can I make sure that the info I provided went through?
+                </summary>
+                After you enter the info you can click on the "My Dojos" link
+                (assuming you are logged in) and double check.
               </details>
               <details>
-                <summary>Fourth Question Here</summary>
-                blahblahblahblahblahblahblahblah
+                <summary>Uh, what is Judo?</summary>
+                In short, Judo is the art of throwing people. If you want a more
+                in depth understanding, you can go to{" "}
+                <a href="https://judoinfo.com/" target="_blank">
+                  judoinfo.com
+                </a>
               </details>
             </Container>
           </Container>
