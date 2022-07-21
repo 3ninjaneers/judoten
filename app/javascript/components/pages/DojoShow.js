@@ -39,7 +39,7 @@ export default class DojoShow extends Component {
           {dojo && (
             <Card key={dojo.id}>
               <Row>
-                <Col className="col-md-4">
+                <Col className="col-md-4 image-container">
                   <CardImg top src={dojo.image} alt="Card image cap" />
                 </Col>
                 <Col className="col-md-8">

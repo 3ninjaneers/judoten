@@ -68,63 +68,65 @@ class App extends Component {
       <>
         <Router>
           <Header {...this.props} />
-          <Switch>
-            <Route exact path="/" component={Home} />
+          <div className="nav-clear">
+            <Switch>
+              <Route exact path="/" component={Home} />
 
-            <Route
-              path="/dojoindex"
-              render={(props) => <DojoIndex dojos={this.state.dojos} />}
-            />
+              <Route
+                path="/dojoindex"
+                render={(props) => <DojoIndex dojos={this.state.dojos} />}
+              />
 
-            <Route
-              path="/mydojos"
-              render={(props) => {
-                let myDojos = this.state.dojos.filter(
-                  (dojo) => dojo.user_id === current_user.id
-                );
-                return <DojoIndex dojos={myDojos} />;
-              }}
-            />
+              <Route
+                path="/mydojos"
+                render={(props) => {
+                  let myDojos = this.state.dojos.filter(
+                    (dojo) => dojo.user_id === current_user.id
+                  );
+                  return <DojoIndex dojos={myDojos} />;
+                }}
+              />
 
-            <Route
-              path="/dojoshow/:id"
-              render={(props) => {
-                let id = props.match.params.id;
-                let dojo = this.state.dojos.find((dojo) => dojo.id === +id);
-                return (
-                  <DojoShow
-                    dojo={dojo}
-                    logged_in={current_user}
-                    deleteDojo={this.deleteDojo}
+              <Route
+                path="/dojoshow/:id"
+                render={(props) => {
+                  let id = props.match.params.id;
+                  let dojo = this.state.dojos.find((dojo) => dojo.id === +id);
+                  return (
+                    <DojoShow
+                      dojo={dojo}
+                      logged_in={current_user}
+                      deleteDojo={this.deleteDojo}
+                    />
+                  );
+                }}
+              />
+              <Route
+                path="/dojoedit/:id"
+                render={(props) => {
+                  let id = props.match.params.id;
+                  let dojo = this.state.dojos.find((dojo) => dojo.id === +id);
+                  return (
+                    <DojoEdit
+                      dojo={dojo}
+                      logged_in={current_user}
+                      updateDojo={this.updateDojo}
+                    />
+                  );
+                }}
+              />
+              <Route
+                path="/dojonew"
+                render={(props) => (
+                  <DojoNew
+                    createDojo={this.createDojo}
+                    user_id={current_user.id}
                   />
-                );
-              }}
-            />
-            <Route
-              path="/dojoedit/:id"
-              render={(props) => {
-                let id = props.match.params.id;
-                let dojo = this.state.dojos.find((dojo) => dojo.id === +id);
-                return (
-                  <DojoEdit
-                    dojo={dojo}
-                    logged_in={current_user}
-                    updateDojo={this.updateDojo}
-                  />
-                );
-              }}
-            />
-            <Route
-              path="/dojonew"
-              render={(props) => (
-                <DojoNew
-                  createDojo={this.createDojo}
-                  user_id={current_user.id}
-                />
-              )}
-            />
-            <Route exact path="/aboutus" component={AboutUs} />
-          </Switch>
+                )}
+              />
+              <Route exact path="/aboutus" component={AboutUs} />
+            </Switch>
+          </div>
           <Footer />
         </Router>
       </>

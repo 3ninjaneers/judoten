@@ -55,14 +55,26 @@ html {
         margin-bottom: 1.25rem;
     }
 }
+.nav-clear{
+    margin-top: 75px;
 
+}
+.app{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 #footer-component {
     color: rgba(255, 255, 255, 0.55);
     padding-top: 56px;
+    // position: fixed;
+    // bottom: 0;
+    margin-top: auto;
 
     #footer-sitemap {
         display: flex;
         flex-direction: row-reverse;
+        
 
         .nav {
             justify-content: center;
@@ -136,7 +148,6 @@ html {
 }
 
 #hero-container {
-    margin-top: 56px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./background-hero-torii.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -317,4 +328,23 @@ html {
     .card-body{
         font-size: 1.5rem;
     }
+}
+@media (max-width: 1000px) and (min-width: 200px) {
+    #show{
+        img {
+            width: 100%;
+            border-radius: 2rem 2rem 0 0;
+
+        }
+        .row{
+            flex-direction: column;
+        }
+        .image-container{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+    }
+
+
 }
