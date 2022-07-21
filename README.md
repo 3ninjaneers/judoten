@@ -6,24 +6,30 @@ This app was created to help people find places where they can train Judo. While
 
 #### LINK : http://www.judoten.com/
 
+---
+
 ## Features
 
 - An unregistered user can view information about all dojos within the database.
 - A registered user can view, create, edit, and delete information about dojos they have entered in the database.
+
+---
 
 ## App Setup:
 
 - Create base rails app
   - removes testing
   - replaces default database with postgresql
-    - `rails new judoten-app -d postgresql -T`
-    - `cd judoten-app`
-    - `rails db:create`
-      - Created database 'judoten_app_development'
-      - Created database 'judoten_app_test'
+    - ```bash
+      $ rails new judoten-app -d postgresql -T
+      $ cd judoten-app
+      $ rails db:create
+      ```
 - Add RSPec
-  - `bundle add rspec-rails`
-  - `rails generate rspec:install`
+  ```bash
+  $ bundle add rspec-rails
+  $ rails generate rspec:install
+  ```
 - Adding React
   - `bundle add webpacker`
   - `bundle add react-rails`
@@ -48,16 +54,20 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
 config/initializers/devise.rb
 
-- Change
-  - `config.sign_out_via = :delete`
-- To
-  - `config.sign_out_via = :get`
+```ruby
+# Change this:
+  config.sign_out_via = :delete
+# To this:
+  config.sign_out_via = :get
+```
 
 Rails Routing
 
-- `rails generate controller Home`
+```bash
+$ rails generate controller Home
+```
+
 - add file `app/views/home/index.html.erb`
-- add
 
 ```ruby
   <%= react_component 'App', {
@@ -86,6 +96,8 @@ get '*path', to: 'home#index', constraints: ->(request){ request.format.html? }
 root 'home#index'
 ```
 
+---
+
 ## React Routing
 
 - `yarn add react-router-dom@5.3.0`
@@ -104,9 +116,10 @@ Adding Reactstrap
 
 - `bundle add bootstrap`
 - `mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss`
-- `yarn add reactstrap`
+- `yarn add reactstrap`  
+  <br/>
 
-app/assets/stylesheets/application.scss
+> File path: app/assets/stylesheets/application.scss
 
 ```scss
 @import "bootstrap";
@@ -114,8 +127,10 @@ app/assets/stylesheets/application.scss
 
 Dojo Resource
 
-- `rails g resource Dojo name:string address:string city:string state:string website:string phone:string instructor:string email:string image:text user_id:integer`
-- `rails db:migrate`
+```bash
+$ rails g resource Dojo name:string address:string city:string state:string website:string phone:string instructor:string email:string image:text user_id:integer
+$ rails db:migrate
+```
 
 User/Dojo Associations
 
@@ -143,7 +158,7 @@ end
 
 ## Getting Started with React
 
-Create folders
+Create folders withiin app/javascript/components
 
 - assets
 - components
@@ -223,102 +238,32 @@ Created branch to contain documentation via README markdown file.
   - `git checkout -b readme`
 - Continually edit and commit documentation through README.md file.
 
-## Switching Drivers Instructions
+## Running the Project Locally
 
-When changing drivers or installing the repo for the first time follow these instructions:
+When installing the repo for the first time follow these instructions:
 
 1.  Clone Repo to local machine
-    1.  `git clone https://github.com/3ninjaneers/judoten.git`
+    ```bash
+    $ git clone https://github.com/3ninjaneers/judoten.git
+    ```
 2.  Run installs (Yarn & Bundle)
-    1.  `yarn install`
-    2.  `bundle install`
+    ```bash
+    $ yarn install
+    $ bundle install
+    ```
 3.  Create database and migrate
-    1.  `rails db:create`
-    2.  `rails db:migrate`
+    ```bash
+    $ rails db:create
+    $ rails db:migrate
+    ```
 4.  Run Application
-    1.  `rails s` **or** `rails server`
-5.  Run Front-end javascript testing
-    ` yarn add jest`
-6.  \_\*\*Run enzyme testing for Ruby
-    `yarn add -D enzyme react-test-renderer enzyme-adapter-react-16`
-7.  Test Header Components and Header using jest and enzyme
-    // Imports React into our test file.
-    import React from 'react'
-
-// Imports Enzyme testing and deconstructs Shallow into our test file.
-import Enzyme, { shallow } from 'enzyme'
-
-// Imports Adapter utilizing the latest react version into our test file so we can run a testing render on any component we may need.
-import Adapter from 'enzyme-adapter-react-16'
-
-// Imports in the component we are going to be testing.
-import Header from './Header'
-
-//Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
-Enzyme.configure({ adapter: new Adapter() })
-
-describe("When Header renders", () => {
-it("displays a heading", () => {
-const header = shallow(<Header />)
-const headerHeading = header.find("h1")
-expect(headerHeading.text()).toEqual("judoten")
-})
-})
-import React, { Component } from 'react'
-import { Nav, NavItem } from 'reactstrap'
-import { NavLink } from 'react-router-dom'
-import './Header.scss'
-
-class Header extends Component {
-render() {
-const {
-logged_in,
-current_user,
-new_user_route,
-sign_in_route,
-sign_out_route
-} = this.props
-console.log("logged_in:", logged_in)
-console.log("current_user:", current_user)
-return (
-
-<header id='header-container'>
-<h1><a id='home-link' href="/">judoten</a></h1>
-<Nav className='links'>
-<NavItem>
-<NavLink className='page-links' to='/dojoindex'> All dojos </NavLink>
-</NavItem>
-{logged_in &&
-<NavItem>
-<a href="/dojonew" className="nav-link"> Add a dojo </a>
-</NavItem>
-}
-{logged_in &&
-<NavItem>
-<a href={sign_out_route} className="nav-link">Sign Out</a>
-</NavItem>
-}
-{!logged_in &&
-<NavItem>
-<a href={sign_in_route} className="nav-link"> Sign In </a>
-</NavItem>
-}
-{!logged_in &&
-<NavItem>
-<a href={new_user_route} className="nav-link"> Create an Account </a>
-</NavItem>
-}
-{logged_in &&
-<NavItem>
-<NavLink className='page-links' to='/mydojos'> dojo </NavLink>
-</NavItem>
-}
-</Nav>
-</header>
-)
-}
-}
-export default Header
+    ```bash
+    $ rails s
+    ```
+    **or**
+    ```bash
+    $ rails server
+    ```
 
 ## Header
 
@@ -340,7 +285,7 @@ Needed to add the following to properly test the image inside our footer
 > Terminal
 
 ```bash
-    yarn add --dev identity-obj-proxy
+   $ yarn add --dev identity-obj-proxy
 ```
 
 > File: package.json
@@ -351,26 +296,4 @@ Needed to add the following to properly test the image inside our footer
       ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
     }
   }
-```
-
-The following is the import necessary to add our logo (located in the assets folder) to the footer
-
-```javascript
-import logo from "../../../assets/images/3ninjaneers.png";
-```
-
-```jsx
-<Row>
-  <img src={logo} />
-</Row>
-```
-
-Testing the Footer we used the following "interesting" function to make sure that a p tag and its contents were rendering
-
-```javascript
-it("displays p tag containing copyright info", () => {
-  const footer = shallow(<Footer />);
-  const footerCopyright = footer.find("p");
-  expect(footerCopyright.exists()).toEqual(true);
-});
 ```
