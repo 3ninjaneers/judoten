@@ -20,11 +20,13 @@
       </div>
     <% end %>
 
-    <div class="actions">
+    <div class="actions primary">
       <%= f.submit "Log in" %>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
+  <div class="user-links">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
+
 <%= react_component('components/Footer') %>
