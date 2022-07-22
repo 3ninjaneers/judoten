@@ -7,6 +7,9 @@ import {
   Card,
   CardImg,
 } from "reactstrap";
+import indexImg from "../../../assets/images/Index.png";
+import showImg from "../../../assets/images/Show.png";
+import formImg from "../../../assets/images/Form.png";
 
 export default class Home extends Component {
   componentDidMount() {
@@ -41,24 +44,24 @@ export default class Home extends Component {
             <CardGroup>
               <Card>
                 <CardImg
-                  alt="Card image cap"
-                  src="https://picsum.photos/318/180"
+                  alt="Screenshot of All Dojos"
+                  src={indexImg}
                   top
                   width="100%"
                 />
               </Card>
               <Card>
                 <CardImg
-                  alt="Card image cap"
-                  src="https://picsum.photos/318/180"
+                  alt="Screenshot of Show page for one dojo"
+                  src={showImg}
                   top
                   width="100%"
                 />
               </Card>
               <Card>
                 <CardImg
-                  alt="Card image cap"
-                  src="https://picsum.photos/318/180"
+                  alt="Screenshot of the user input form"
+                  src={formImg}
                   top
                   width="100%"
                 />
