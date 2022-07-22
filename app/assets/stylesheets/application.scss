@@ -22,6 +22,7 @@ html {
 
 .social-img-footer {
     max-width: 40px;
+    filter: invert(100%)
 }
 
 #judotenLogo {
@@ -32,6 +33,10 @@ html {
     .navbar-collapse {
         flex-grow: 0;
     }
+
+    .navbar-toggler {
+        margin-right: 2rem;
+    }
 }
 
 #register_page,
@@ -41,12 +46,18 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    margin-top: 56px;
+    // margin-top: 56px;
     height: 100%;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     text-align: center;
 
     h2 {
+        width: 100%;
+        text-align: center;
         padding-top: 4rem;
     }
 
@@ -54,11 +65,50 @@ html {
         margin-top: 1.25rem;
         margin-bottom: 1.25rem;
     }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+
+        input {
+            color: white;
+            background-color: blue;
+        }
+    }
+
+    .user-links {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+    }
+
+    a {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.nav-clear {
+    margin-top: 70px;
+
+}
+
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #footer-component {
     color: rgba(255, 255, 255, 0.55);
-    padding-top: 56px;
+    padding-top: 2rem;
+    margin-top: auto;
+
+    .row {
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
 
     #footer-sitemap {
         display: flex;
@@ -74,13 +124,77 @@ html {
         }
     }
 
+    .col-sm-9 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     #footer-logo {
         max-width: 150px;
     }
 }
 
+#index {
+    margin-top: 65px;
+
+    h3 {
+        margin-top: 4rem;
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .card:hover {
+        transition: all .3s ease-in-out;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    .card-group {
+        flex-wrap: wrap;
+    }
+
+    .card {
+        margin: 2rem;
+        flex-basis: 300px;
+        flex-wrap: wrap;
+        border-radius: 2rem;
+    }
+}
+
+
+.dojos {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 500px;
+
+    .card-body {
+        padding: 0;
+
+        .card-title {
+            margin-top: 1em;
+            background-color: rgba(255, 0, 0, 0.8);
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .card-subtitle {
+            position: absolute;
+            bottom: 1.5rem;
+            width: 100%;
+            background-color: rgba(255, 0, 0, 0.8);
+            text-align: center;
+            color: white;
+            font-size: 1rem;
+        }
+    }
+}
+
 #hero-container {
-    margin-top: 56px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./background-hero-torii.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -100,7 +214,7 @@ html {
 
 #home-about {
     min-height: 600px;
-    margin-top: 5em;
+    margin-top: 4rem;
 
     h2 {
         text-align: center;
@@ -110,6 +224,7 @@ html {
     p {
         line-height: 1.6em;
         margin-bottom: 2em;
+        font-size: 1.5rem;
     }
 
     .card {
@@ -117,15 +232,31 @@ html {
         padding: 0 2rem;
     }
 
+    .card:hover {
+        transition: all .3s ease-in-out;
+        transform: scale(1.5);
+        cursor: pointer;
+        z-index: 1000;
+        padding: 0;
+        margin: 0;
+    }
+
     .card-img-top {
         border-radius: 30px;
+    }
+
+    @media (max-width: 990px) {
+        .card {
+            display: block;
+            flex: auto;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
 
     #footer-nav {
         font-size: 0.7em;
     }
-
-    #footer-nav li {}
 
     #footer-logo img {
         max-width: 150px;
@@ -133,7 +264,6 @@ html {
 }
 
 #about-container {
-    margin-top: 56px;
     height: 100%;
 
     h2 {
@@ -159,10 +289,9 @@ html {
             margin-bottom: 40px;
 
             .card-img {
-                display: inline-block;
+                display: flex;
                 max-width: 300px;
                 border-radius: 50%;
-                margin: 2rem;
                 border: 6px solid black;
             }
 
@@ -186,7 +315,7 @@ html {
             }
 
             .profile-text {
-                display: flexbox;
+                display: flex;
                 text-align: justify;
                 padding-right: 4rem;
             }
@@ -205,6 +334,35 @@ html {
                 }
             }
         }
+
+        @media (max-width: 1200px) {
+            .row {
+                display: block;
+                flex-direction: column;
+
+                .col {
+                    margin: 1em;
+                    width: 100%;
+                }
+            }
+
+            .card-img {
+                display: flex;
+                margin: 0 auto;
+            }
+
+            #middle-card,
+            .profile-text {
+                margin: 1rem;
+            }
+
+            #socials {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+        }
     }
 
 }
@@ -214,17 +372,94 @@ html {
 }
 
 #faq {
+    margin-bottom: 5rem;
+
     h2 {
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
+
     }
 
     #questions {
         min-width: 400px;
         max-width: 800px;
+        font-size: 1.5rem;
 
         details {
             display: block;
+            margin-bottom: 1rem;
+
+            summary {
+                margin-bottom: 1rem;
+                color: rgb(11, 11, 113);
+                font-style: italic;
+            }
         }
     }
 }
+
+#show {
+    margin-top: 65px;
+
+    h3 {
+        margin-top: 6rem;
+        text-align: center;
+        font-size: 3rem;
+
+    }
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        border-radius: 2rem 0 0 2rem;
+
+    }
+
+    .card {
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+        box-shadow: 0 20px 8px -15px rgba(142, 23, 23, 0.698);
+        border-radius: 2rem;
+        background-color: rgb(33, 37, 41);
+        color: white;
+    }
+
+    .col {
+        display: flex;
+    }
+
+    .card-body {
+        font-size: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1000px) and (min-width: 200px) {
+    #show {
+        img {
+            width: 100%;
+            border-radius: 2rem 2rem 0 0;
+
+        }
+
+        .row {
+            flex-direction: column;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+    }
+}
+
+#footer-component .row>* {
+    width: auto;
+}
+
+// #footer-component div .row {
+//     width: 100%
+// }
