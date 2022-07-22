@@ -94,7 +94,7 @@ export default class AboutUs extends Component {
           </Card>
           <Card className="profile">
             <CardBody>
-              <Row>
+              <Row className="sm-reverse">
                 <Col className="col-md-8">
                   <CardTitle>Denise Carlson</CardTitle>
                   <CardSubtitle>Tech Lead</CardSubtitle>
