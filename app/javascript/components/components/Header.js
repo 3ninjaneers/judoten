@@ -7,6 +7,7 @@ import {
   NavbarBrand,
   NavbarToggler,
   UncontrolledCollapse,
+  NavbarText,
 } from "reactstrap";
 import judoTenLogo from "../../../assets/images/judoten_logo.png";
 
@@ -34,6 +35,9 @@ class Header extends Component {
         <NavbarBrand href="/">
           <img id="judotenLogo" src={judoTenLogo} alt="JudoTen Logo" />
         </NavbarBrand>
+        <NavbarText>
+          <h1>JudoTen</h1>
+        </NavbarText>
         <NavbarToggler id="toggler" onClick={function noRefCheck() {}} />
         <UncontrolledCollapse defaultOpen={false} toggler="#toggler" navbar>
           <Nav className="me-auto" navbar>
